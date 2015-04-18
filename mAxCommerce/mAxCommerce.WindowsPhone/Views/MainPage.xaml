@@ -1,0 +1,47 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="mAxCommerce.WindowsPhone.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:slideview="clr-namespace:Telerik.Windows.Controls.SlideView;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:design="clr-namespace:mAxCommerce.WindowsPhone.DesignData"
+    mc:Ignorable="d" 
+    d:DataContext="{d:DesignInstance Type=design:Design_MainPageViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot">
+
+        <phone:Panorama Title="mAxCommerce">
+
+            <phone:PanoramaItem Header="{Binding ProductsByCategory.DisplayCategory.Name}">
+                <!-- Caliburn Micro will insert ProductsByCategory user control here -->
+                <ContentControl x:Name="ProductsByCategory" />
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Recent products" Orientation="Horizontal">
+                <!-- Caliburn Micro will insert RecentProducts user control here -->
+                <ContentControl x:Name="RecentProducts" />
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Account">
+                <StackPanel>
+                    <Button Content="Your account" cal:Message.Attach="[Event Click] = [Action NavigateToAccount]" />
+                </StackPanel>
+            </phone:PanoramaItem>
+
+        </phone:Panorama>
+
+    </Grid>
+</phone:PhoneApplicationPage>

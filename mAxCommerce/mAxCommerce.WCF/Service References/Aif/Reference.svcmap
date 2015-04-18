@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1047afb6-32e0-4992-96f2-d6dc1ade9c64" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://OCZERETKOPC:8101/DynamicsAx/Services/mAxCommerce" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mAxCommerce.xsd" MetadataType="Schema" ID="47c86452-b120-4949-a631-2fbec0e9f64d" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd0" />
+    <MetadataFile FileName="mAxCommerce.wsdl" MetadataType="Wsdl" ID="718563b5-26bc-4990-82b5-b1a92b0985db" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce" />
+    <MetadataFile FileName="mAxCommerce1.xsd" MetadataType="Schema" ID="2e76ea61-d88b-44d7-867d-93a5d43354fd" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd4" />
+    <MetadataFile FileName="mAxCommerce1.wsdl" MetadataType="Wsdl" ID="ca5fb067-118f-488b-a84f-9d36a545e83e" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?wsdl=wsdl0" />
+    <MetadataFile FileName="mAxCommerce2.xsd" MetadataType="Schema" ID="8654ba74-67a5-43a1-a0d6-41d24335e544" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd7" />
+    <MetadataFile FileName="mAxCommerce3.xsd" MetadataType="Schema" ID="d0495008-2ea2-4e15-9cec-c8fbe69e0439" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd1" />
+    <MetadataFile FileName="mAxCommerce4.xsd" MetadataType="Schema" ID="151b3bbb-da29-4fa8-8cca-7fc53c7338ef" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd6" />
+    <MetadataFile FileName="mAxCommerce5.xsd" MetadataType="Schema" ID="163781c6-6ea6-49c9-9e3d-3f0dfdbcc034" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd2" />
+    <MetadataFile FileName="mAxCommerce6.xsd" MetadataType="Schema" ID="900bfcde-30e6-4942-9f8b-c8d8f2e22fe0" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd5" />
+    <MetadataFile FileName="mAxCommerce7.xsd" MetadataType="Schema" ID="af98e122-1032-4bdf-8b0c-9ea5a562159b" SourceId="1" SourceUrl="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd4" namespace="http://tempuri.org" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd5" namespace="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd6" namespace="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Dynamics.Ax.Application" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.Ax.Xpp" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://oczeretkopc:8101/DynamicsAx/Services/mAxCommerce?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.AX.Framework.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="mAxCommerceServiceGetProductByIdRequest">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductByIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductByIdRequest_Headers">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" name="context" element="q1:CallContext" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductByIdResponse">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceService_getProductById_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q2:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceCreateOrderRequest">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceCreateOrderRequest" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceCreateOrderRequest_Headers">
+    <wsdl:part xmlns:q3="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" name="context" element="q3:CallContext" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceCreateOrderResponse">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceCreateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceService_createOrder_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q4:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetCategoriesRequest">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetCategoriesRequest" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetCategoriesRequest_Headers">
+    <wsdl:part xmlns:q5="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" name="context" element="q5:CallContext" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetCategoriesResponse">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceService_getCategories_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q6:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductImageBase64Request">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductImageBase64Request" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductImageBase64Request_Headers">
+    <wsdl:part xmlns:q7="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" name="context" element="q7:CallContext" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductImageBase64Response">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductImageBase64Response" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceService_getProductImageBase64_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q8:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductsByCategoryRequest">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductsByCategoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductsByCategoryRequest_Headers">
+    <wsdl:part xmlns:q9="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" name="context" element="q9:CallContext" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceServiceGetProductsByCategoryResponse">
+    <wsdl:part name="parameters" element="tns:mAxCommerceServiceGetProductsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="mAxCommerceService_getProductsByCategory_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q10:AifFault" />
+  </wsdl:message>
+  <wsdl:portType name="mAxCommerceService">
+    <wsdl:operation name="getProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/mAxCommerceService/getProductById" name="mAxCommerceServiceGetProductByIdRequest" message="tns:mAxCommerceServiceGetProductByIdRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/mAxCommerceService/getProductByIdResponse" name="mAxCommerceServiceGetProductByIdResponse" message="tns:mAxCommerceServiceGetProductByIdResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/mAxCommerceService/getProductByIdAifFaultFault" name="AifFaultFault" message="tns:mAxCommerceService_getProductById_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/mAxCommerceService/createOrder" name="mAxCommerceServiceCreateOrderRequest" message="tns:mAxCommerceServiceCreateOrderRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/mAxCommerceService/createOrderResponse" name="mAxCommerceServiceCreateOrderResponse" message="tns:mAxCommerceServiceCreateOrderResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/mAxCommerceService/createOrderAifFaultFault" name="AifFaultFault" message="tns:mAxCommerceService_createOrder_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/mAxCommerceService/getCategories" name="mAxCommerceServiceGetCategoriesRequest" message="tns:mAxCommerceServiceGetCategoriesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/mAxCommerceService/getCategoriesResponse" name="mAxCommerceServiceGetCategoriesResponse" message="tns:mAxCommerceServiceGetCategoriesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/mAxCommerceService/getCategoriesAifFaultFault" name="AifFaultFault" message="tns:mAxCommerceService_getCategories_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductImageBase64">
+      <wsdl:input wsaw:Action="http://tempuri.org/mAxCommerceService/getProductImageBase64" name="mAxCommerceServiceGetProductImageBase64Request" message="tns:mAxCommerceServiceGetProductImageBase64Request" />
+      <wsdl:output wsaw:Action="http://tempuri.org/mAxCommerceService/getProductImageBase64Response" name="mAxCommerceServiceGetProductImageBase64Response" message="tns:mAxCommerceServiceGetProductImageBase64Response" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/mAxCommerceService/getProductImageBase64AifFaultFault" name="AifFaultFault" message="tns:mAxCommerceService_getProductImageBase64_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductsByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/mAxCommerceService/getProductsByCategory" name="mAxCommerceServiceGetProductsByCategoryRequest" message="tns:mAxCommerceServiceGetProductsByCategoryRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/mAxCommerceService/getProductsByCategoryResponse" name="mAxCommerceServiceGetProductsByCategoryResponse" message="tns:mAxCommerceServiceGetProductsByCategoryResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/mAxCommerceService/getProductsByCategoryAifFaultFault" name="AifFaultFault" message="tns:mAxCommerceService_getProductsByCategory_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

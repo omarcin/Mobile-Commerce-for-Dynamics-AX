@@ -1,0 +1,80 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="mAxCommerce.WindowsPhone.Views.OrderConfirmPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,8">
+            <TextBlock Text="mAxCommerce" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Review order" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Delivery address" Margin="0,20,0,0" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+
+            <StackPanel Grid.Row="1">
+                <toolkit:WrapPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding DeliveryAddress.FirstName}" />
+                    <TextBlock Text="{Binding DeliveryAddress.LastName}" />
+                </toolkit:WrapPanel>
+
+                <toolkit:WrapPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding DeliveryAddress.Street}" />
+                    <TextBlock Text="{Binding DeliveryAddress.Number}" />
+                </toolkit:WrapPanel>
+
+                <toolkit:WrapPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding DeliveryAddress.City}" />
+                    <TextBlock Text="{Binding DeliveryAddress.PostalCode}" />
+                </toolkit:WrapPanel>
+
+                <TextBlock Text="{Binding DeliveryAddress.Country}"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="2" Text="Products" Margin="0,20,0,0" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+
+            <ItemsControl 
+                Grid.Row="3" 
+                ItemsSource="{Binding Products}" 
+                Template="{StaticResource ItemsControlWithScrollView}"
+                ItemTemplate="{StaticResource ProductLineSmallListBoxItemTemplate}"/>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock TextWrapping="Wrap" Text="Total:" Margin="10,0"/>
+                <TextBlock TextWrapping="Wrap" x:Name="TotalAmount" Text="{Binding TotalAmount}"/>
+            </StackPanel>
+
+
+            <Button Grid.Row="5" x:Name="PlaceOrder" Content="Place order"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

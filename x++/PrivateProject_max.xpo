@@ -1,0 +1,882 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: TestCreateOrder unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #TestCreateOrder
+    #static void TestCreateOrder(Args _args)
+    #{
+    #    #define.Item1509(5637144639)
+    #
+    #    mAxCommerceService service = new mAxCommerceService();
+    #    mAxCommerceOrder orderDto = new mAxCommerceOrder();
+    #    List lines = new List(Types::Class);
+    #    mAxCommerceOrderLine line = new mAxCommerceOrderLine();
+    #
+    #    line.parmProductId(#Item1509);
+    #    line.parmQty(123);
+    #    lines.addEnd(line);
+    #
+    #    orderDto.parmLines(lines);
+    #    orderDto.parmCity('placeholder');
+    #    orderDto.parmCountry('placeholder');
+    #    orderDto.parmStreet('placeholder 212/31');
+    #    orderDto.parmZipCode('123-12');
+    #    orderDto.parmFirstName('placeholder');
+    #    orderDto.parmLastName('placeholder');
+    #
+    #    info(service.createOrder(orderDto));
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{E54E83E5-6BF4-4F97-A2E9-84C9A6BE4FEA}
+  ENDPROPERTIES
+  
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceOrderLine unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceOrderLine
+    PROPERTIES
+      Name                #mAxCommerceOrderLine
+      Origin              #{36DD8FA7-E6D7-4E94-AC7F-D508BCF80B31}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #classDeclaration
+        #[DataContractAttribute]
+        #public class mAxCommerceOrderLine
+        #{
+        #    RecId productId;
+        #    Qty qty;
+        #}
+      ENDSOURCE
+      SOURCE #parmProductId
+        #[DataMemberAttribute]
+        #public RecId parmProductId(RecId _productId = productId)
+        #{
+        #    productId = _productId;
+        #    return productId;
+        #}
+      ENDSOURCE
+      SOURCE #parmQty
+        #[DataMemberAttribute]
+        #public Qty parmQty(Qty _qty = qty)
+        #{
+        #    qty = _qty;
+        #    return qty;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceOrder unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceOrder
+    PROPERTIES
+      Name                #mAxCommerceOrder
+      Origin              #{40FAE7F4-BFC6-47DC-A450-5C9EF1C74EE6}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #parmFirstName
+        #public FirstName parmFirstName(FirstName _firstName = firstName)
+        #{
+        #    firstName = _firstName;
+        #    return firstName;
+        #}
+      ENDSOURCE
+      SOURCE #parmLastName
+        #public LastName parmLastName(LastName _lastName = lastName)
+        #{
+        #    lastName = _lastName;
+        #    return lastName;
+        #}
+      ENDSOURCE
+      SOURCE #parmCountry
+        #public LogisticsAddressCountryRegionISOCode parmCountry(LogisticsAddressCountryRegionISOCode _country = country)
+        #{
+        #    country = _country;
+        #    return country;
+        #}
+      ENDSOURCE
+      SOURCE #parmZipCode
+        #public LogisticsAddressZipCodeId parmZipCode(LogisticsAddressZipCodeId _zipCode = zipCode)
+        #{
+        #    zipCode = _zipCode;
+        #    return zipCode;
+        #}
+      ENDSOURCE
+      SOURCE #parmCity
+        #public LogisticsAddressCity parmCity(LogisticsAddressCity _city = city)
+        #{
+        #    city = _city;
+        #    return city;
+        #}
+      ENDSOURCE
+      SOURCE #parmStreet
+        #public LogisticsAddressStreet parmStreet(LogisticsAddressStreet _street = street)
+        #{
+        #    street = _street;
+        #    return street;
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #[DataContractAttribute]
+        #public class mAxCommerceOrder
+        #{
+        #    FirstName firstName;
+        #    LastName lastName;
+        #
+        #    LogisticsAddressCountryRegionISOCode country;
+        #    LogisticsAddressStreet street;
+        #    LogisticsAddressCity city;
+        #    LogisticsAddressZipCodeId zipCode;
+        #
+        #    List lines;
+        #}
+      ENDSOURCE
+      SOURCE #parmLines
+        #[DataMemberAttribute,
+        # AifCollectionTypeAttribute("_lines", Types::Class, classStr(mAxCommerceOrderLine)),
+        # AifCollectionTypeAttribute("return", Types::Class, classStr(mAxCommerceOrderLine))]
+        #public List parmLines(List _lines = lines)
+        #{
+        #    lines = _lines;
+        #    return lines;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: TestCommerceServiceJob unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #TestCommerceServiceJob
+    #static void TestCommerceServiceJob(Args _args)
+    #{
+    #    #define.SubCatA(22565420921)
+    #    #define.SubCatB(22565420923)
+    #    #define.Root(22565420921)
+    #
+    #    mAxCommerceService service = new mAxCommerceService();
+    #    List products = service.getProductsByCategory(#SubCatA);
+    #    ListEnumerator enumerator = products.getEnumerator();
+    #    mAxCommerceProduct product;
+    #    ListEnumerator img;
+    #
+    #    while(enumerator.moveNext())
+    #    {
+    #        product = enumerator.current();
+    #        img = product.parmImages().getEnumerator();
+    #        while(img.moveNext())
+    #        {
+    #            info(int642str(img.current()));
+    #        }
+    #
+    #    }
+    #
+    #
+    #
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{F500BAF4-B3BD-47E9-AA65-BEDC771C90E5}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: TestImageServiceJob unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #TestImageServiceJob
+    #static void TestImageServiceJob(Args _args)
+    #{
+    #    #define.PM(22565424299)
+    #    #define.DP(22565422049)
+    #    InventTable inventTable = InventTable::findRecId(#DP);
+    #    mAxCommerceProductImages imagesHelper = new mAxCommerceProductImages();
+    #    List images = imagesHelper.getProductImages(inventTable);
+    #    ListEnumerator enumerator = images.getEnumerator();
+    #
+    #    while(enumerator.moveNext())
+    #    {
+    #        info(int642str(enumerator.current()));
+    #    }
+    #
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{BC2B94BF-948F-474C-9123-059219045070}
+  ENDPROPERTIES
+  
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceProductImages unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceProductImages
+    PROPERTIES
+      Name                #mAxCommerceProductImages
+      Origin              #{E0852A45-4858-49E3-A146-F309023A432F}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #classDeclaration
+        #class mAxCommerceProductImages
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #getDistinctProductImages
+        #private List getDistinctProductImages(InventTable _inventTable)
+        #{
+        #    return this.getEcoResProductImagesByRefRecords(_inventTable.RecId, _inventTable.Product);
+        #}
+      ENDSOURCE
+      SOURCE #getEcoResProductImagesByRefRecords
+        #private List getEcoResProductImagesByRefRecords(RecId refRecord1, RecId refRecord2)
+        #{
+        #    EcoResProductImage ecoResProductImage;
+        #    DocuRef docuRef;
+        #    DocuValue docuValue;
+        #    List productImages = new List(Types::Int64);
+        #
+        #    while select RecId from ecoResProductImage
+        #            where (ecoResProductImage.RefRecord == refRecord1 || ecoResProductImage.RefRecord == refRecord2) &&
+        #                  ecoResProductImage.Usage == EcoResProductImageUsage::External
+        #        join RecId from docuRef
+        #            where docuRef.RecId == ecoResProductImage.RefRecId &&
+        #                  docuRef.RefRecId == ecoResProductImage.RefRecord
+        #        join RecId from docuValue
+        #            where docuRef.ValueRecId == docuValue.RecId
+        #    {
+        #        productImages.addEnd(ecoResProductImage.RecId);
+        #    }
+        #
+        #    return productImages;
+        #}
+      ENDSOURCE
+      SOURCE #getProductImages
+        #public List getProductImages(InventTable _inventTable)
+        #{
+        #    EcoResProduct product;
+        #
+        #    select firstonly product where product.RecId == _inventTable.Product;
+        #
+        #    switch(product.getInstanceRelationType())
+        #    {
+        #        case tableStr(EcoResDistinctProduct):
+        #            return this.getDistinctProductImages(_inventTable);
+        #        case tableStr(EcoResProductMaster):
+        #            return this.getProductMasterImages(_inventTable);
+        #        case tableStr(EcoResDistinctProductVariant):
+        #           throw error('EcoResDistinctProductVariant is not supported');
+        #        default:
+        #            return new List(Types::Int64);
+        #    }
+        #}
+      ENDSOURCE
+      SOURCE #getProductMasterImages
+        #private List getProductMasterImages(InventTable _inventTable)
+        #{
+        #    EcoResDistinctProductVariant ecoResDistinctProductVariant;
+        #    InventDimCombination inventDimCombination;
+        #
+        #    List result = this.getDistinctProductImages(_inventTable);
+        #
+        #    while select ProductMaster, RecId from ecoResDistinctProductVariant
+        #            where ecoResDistinctProductVariant.ProductMaster == _inventTable.Product
+        #          join RecId from inventDimCombination
+        #            where inventDimCombination.DistinctProductVariant == ecoResDistinctProductVariant.RecId
+        #    {
+        #        result = List::merge(result, this.getEcoResProductImagesByRefRecords(inventDimCombination.RecId, ecoResDistinctProductVariant.RecId));
+        #    }
+        #
+        #    return result;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: SVC
+
+; Microsoft Dynamics AX SERVICE : mAxCommerceService unloaded
+; --------------------------------------------------------------------------------
+  VERSION 1
+  
+  SERVICE #mAxCommerceService
+    PROPERTIES
+      Name                #mAxCommerceService
+      Class               #mAxCommerceService
+      Origin              #{B33FE283-3F9D-465D-BB17-5A9264FCCF6D}
+    ENDPROPERTIES
+    
+    OPERATIONS
+      OPERATION #getCategories
+        PROPERTIES
+          Name                #getCategories
+          Method              #getCategories
+        ENDPROPERTIES
+        
+        PERMISSIONSET #Permissions
+          PROPERTIES
+          ENDPROPERTIES
+          
+          TABLES #Tables
+          ENDTABLES
+          
+        SERVERMETHODS #Server Methods
+        ENDSERVERMETHODS
+        
+      ASSOCIATEDCODEPERMISSIONS #Associated Code Permissions
+      ENDASSOCIATEDCODEPERMISSIONS
+      
+  ENDPERMISSIONSET
+  
+ENDOPERATION
+
+OPERATION #getProductById
+  PROPERTIES
+    Name                #getProductById
+    Method              #getProductById
+  ENDPROPERTIES
+  
+  PERMISSIONSET #Permissions
+    PROPERTIES
+    ENDPROPERTIES
+    
+    TABLES #Tables
+    ENDTABLES
+    
+  SERVERMETHODS #Server Methods
+  ENDSERVERMETHODS
+  
+ASSOCIATEDCODEPERMISSIONS #Associated Code Permissions
+ENDASSOCIATEDCODEPERMISSIONS
+
+ENDPERMISSIONSET
+
+ENDOPERATION
+
+OPERATION #getProductImageBase64
+  PROPERTIES
+    Name                #getProductImageBase64
+    Method              #getProductImageBase64
+  ENDPROPERTIES
+  
+  PERMISSIONSET #Permissions
+    PROPERTIES
+    ENDPROPERTIES
+    
+    TABLES #Tables
+    ENDTABLES
+    
+  SERVERMETHODS #Server Methods
+  ENDSERVERMETHODS
+  
+ASSOCIATEDCODEPERMISSIONS #Associated Code Permissions
+ENDASSOCIATEDCODEPERMISSIONS
+
+ENDPERMISSIONSET
+
+ENDOPERATION
+
+OPERATION #getProductsByCategory
+  PROPERTIES
+    Name                #getProductsByCategory
+    Method              #getProductsByCategory
+  ENDPROPERTIES
+  
+  PERMISSIONSET #Permissions
+    PROPERTIES
+    ENDPROPERTIES
+    
+    TABLES #Tables
+    ENDTABLES
+    
+  SERVERMETHODS #Server Methods
+  ENDSERVERMETHODS
+  
+ASSOCIATEDCODEPERMISSIONS #Associated Code Permissions
+ENDASSOCIATEDCODEPERMISSIONS
+
+ENDPERMISSIONSET
+
+ENDOPERATION
+
+ENDOPERATIONS
+
+ENDSERVICE
+
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceService unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceService
+    PROPERTIES
+      Name                #mAxCommerceService
+      RunOn               #Server
+      Origin              #{BE95A82E-B9E6-4B14-9642-E79393D66A0E}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #createSalesLine
+        #private void createSalesLine(mAxCommerceOrderLine line, SalesIdBase salesId)
+        #{
+        #    SalesLine salesLine;
+        #    salesLine.SalesId = salesId;
+        #    salesLine.ItemId = this.getInventTableByRecId(line.parmProductId()).ItemId;
+        #    salesLine.SalesQty = line.parmQty();
+        #
+        #    salesLine.createLine(
+        #        NoYes::Yes, // Validate
+        #        NoYes::Yes, // initFromSalesTable
+        #        NoYes::Yes, // initFromInventTable
+        #        NoYes::Yes, // calcInventQty
+        #        NoYes::Yes, // searchMarkup
+        #        NoYes::Yes); // searchPrice
+        #}
+      ENDSOURCE
+      SOURCE #createSalesLines
+        #private void createSalesLines(List linesList, SalesIdBase salesId)
+        #{
+        #    mAxCommerceOrderLine line;
+        #    ListEnumerator linesEnumerator = linesList.getEnumerator();
+        #
+        #    while(linesEnumerator.moveNext())
+        #    {
+        #        line = linesEnumerator.current();
+        #        this.createSalesLine(line, salesId);
+        #    }
+        #}
+      ENDSOURCE
+      SOURCE #createDeliveryAddress
+        #private void createDeliveryAddress(SalesTable salesTable, mAxCommerceOrder orderDto)
+        #{
+        #    DirParty                        dirParty;
+        #    DirPartyPostalAddressView       dirPartyPostalAddressView;
+        #    DirPartyLocation                dirPartyLocation;
+        #    LogisticsLocation               logisticsLocation;
+        #    LogisticsPostalAddress          logisticsPostalAddress;
+        #
+        #    dirParty = DirParty::constructFromCommon(salesTable.custTable_CustAccount());
+        #
+        #    dirPartyPostalAddressView.LocationName = "mAxCommerce delivery address";
+        #    dirPartyPostalAddressView.Street = orderDto.parmStreet();
+        #    dirPartyPostalAddressView.ZipCode = orderDto.parmZipCode();
+        #    dirPartyPostalAddressView.City = orderDto.parmCity();
+        #    dirPartyPostalAddressView.CountryRegionId = LogisticsAddressCountryRegion::findByISOCode(orderDto.parmCountry()).CountryRegionId;
+        #
+        #    dirPartyPostalAddressView = dirParty.createOrUpdatePostalAddress(dirPartyPostalAddressView);
+        #
+        #    select dirPartyLocation where dirPartyLocation.recId == dirPartyPostalAddressView.partyLocation;
+        #
+        #    logisticsLocation = LogisticsLocation::find(dirPartyLocation.Location);
+        #    logisticsPostalAddress = LogisticsPostalAddress::findByLocation(logisticsLocation.RecId);
+        #
+        #    salesTable.DeliveryPostalAddress = logisticsPostalAddress.RecId;
+        #}
+      ENDSOURCE
+      SOURCE #getInventTableByRecId
+        #private InventTable getInventTableByRecId(RecId recId)
+        #{
+        #    EcoResProductCategory productCategory;
+        #    int64 hierarchyId = this.getCategoryHierarchyRecId();
+        #    InventTable inventTable;
+        #
+        #    select firstOnly inventTable
+        #          where inventTable.RecId == recId
+        #      join Product, CategoryHierarchy from productCategory
+        #          where inventTable.Product == productCategory.Product &&
+        #                productCategory.CategoryHierarchy == hierarchyId;
+        #
+        #    if (inventTable)
+        #    {
+        #        return inventTable;
+        #    }
+        #    else
+        #    {
+        #        throw error('Product not found');
+        #    }
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #public class mAxCommerceService
+        #{
+        #    #define.CategoryHierarchyName('mAxCommerce')
+        #    mAxCommerceProductImages productImages;
+        #}
+      ENDSOURCE
+      SOURCE #createCategoryDto
+        #private mAxCommerceCategory createCategoryDto(EcoResCategory _category)
+        #{
+        #    List childCategories;
+        #
+        #    mAxCommerceCategory categoryDto = new mAxCommerceCategory();
+        #    categoryDto.parmName(_category.Name);
+        #    categoryDto.parmId(_category.RecId);
+        #
+        #    childCategories = this.createChildCategoriesList(_category);
+        #    categoryDto.parmChildCategories(childCategories);
+        #
+        #    return categoryDto;
+        #}
+      ENDSOURCE
+      SOURCE #createChildCategoriesList
+        #private List createChildCategoriesList(EcoResCategory _category)
+        #{
+        #    EcoResCategory childCategory;
+        #    List children = new List(Types::Class);
+        #
+        #    while select childCategory where childCategory.ParentCategory == _category.RecId
+        #    {
+        #        children.addEnd(this.createCategoryDto(childCategory));
+        #    }
+        #
+        #    return children;
+        #}
+      ENDSOURCE
+      SOURCE #createOrder
+        #[SysEntryPointAttribute(true)]
+        #public SalesIdBase createOrder(mAxCommerceOrder orderDto)
+        #{
+        #    SalesTable salesTable;
+        #
+        #    salesTable.SalesId = NumberSeq::newGetNum(SalesParameters::numRefSalesId()).num();
+        #    salesTable.initValue();
+        #    salesTable.OneTimeCustomer = NoYes::Yes;
+        #    salesTable.DeliveryName = orderDto.parmFirstName() + ' ' + orderDto.parmLastName();
+        #    salesTable.createOneTimeAccount();
+        #
+        #    this.createDeliveryAddress(salesTable, orderDto);
+        #
+        #    salesTable.insert();
+        #
+        #    this.createSalesLines(orderDto.parmLines(), salesTable.SalesId);
+        #
+        #    return salesTable.SalesId;
+        #}
+      ENDSOURCE
+      SOURCE #createProductDto
+        #private mAxCommerceProduct createProductDto(InventTable _inventTable)
+        #{
+        #    List images = productImages.getProductImages(_inventTable);
+        #    mAxCommerceProduct product = new mAxCommerceProduct();
+        #    product.parmId(_inventTable.RecId);
+        #    product.parmDescription(_inventTable.defaultProductDescription());
+        #    product.parmName(_inventTable.defaultProductName());
+        #    product.parmPrice(_inventTable.salesPcsPrice());
+        #    product.parmImages(images);
+        #    return product;
+        #}
+      ENDSOURCE
+      SOURCE #getCategories
+        #[SysEntryPointAttribute(true)]
+        #public mAxCommerceCategory getCategories()
+        #{
+        #    EcoResCategory categoryRoot;
+        #    int64 hierarchyId = this.getCategoryHierarchyRecId();
+        #
+        #    select firstOnly categoryRoot
+        #    where categoryRoot.CategoryHierarchy == hierarchyId &&
+        #          categoryRoot.ParentCategory == 0;
+        #
+        #    return this.createCategoryDto(categoryRoot);
+        #}
+      ENDSOURCE
+      SOURCE #getCategoryHierarchyRecId
+        #private int64 getCategoryHierarchyRecId()
+        #{
+        #    EcoResCategoryHierarchy hierarchy = EcoResCategoryHierarchy::findByName(#CategoryHierarchyName);
+        #
+        #    if (!hierarchy)
+        #    {
+        #        throw error('mAxCommerce category hierarchy does not exist');
+        #    }
+        #
+        #    return hierarchy.RecId;
+        #}
+      ENDSOURCE
+      SOURCE #getProductById
+        #[SysEntryPointAttribute(true)]
+        #public mAxCommerceProduct getProductById(RecId productId)
+        #{
+        #    InventTable inventTable = this.getInventTableByRecId(productId);
+        #    return this.createProductDto(inventTable);
+        #}
+      ENDSOURCE
+      SOURCE #getProductImageBase64
+        #[SysEntryPointAttribute(true)]
+        #public str getProductImageBase64(RecId imageId)
+        #{
+        #    EcoResProductImage productImage = EcoResProductImage::find(imageId);
+        #    BinData binaryData = new BinData();
+        #    binaryData.setData(productImage.MediumSize);
+        #    return binaryData.base64Encode();
+        #}
+      ENDSOURCE
+      SOURCE #getProductsByCategory
+        #[SysEntryPointAttribute(true),
+        # AifCollectionTypeAttribute("return", Types::Class, classStr(mAxCommerceProduct))]
+        #public List getProductsByCategory(RecId categoryId)
+        #{
+        #    InventTable inventTable;
+        #    EcoResProductCategory productCategory;
+        #
+        #    List products = new List(Types::Class);
+        #    int64 hierarchyId = this.getCategoryHierarchyRecId();
+        #
+        #    while select inventTable join Product, CategoryHierarchy, Category from productCategory
+        #          where inventTable.Product == productCategory.Product &&
+        #                productCategory.CategoryHierarchy == hierarchyId &&
+        #                productCategory.Category == categoryId
+        #    {
+        #        products.addEnd(this.createProductDto(inventTable));
+        #    }
+        #
+        #    return products;
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #public void new()
+        #{
+        #    productImages = new mAxCommerceProductImages();
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceCategory unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceCategory
+    PROPERTIES
+      Name                #mAxCommerceCategory
+      Origin              #{9A1A8D18-DEB8-4B28-AF0B-46959476B444}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #classDeclaration
+        #[DataContractAttribute]
+        #public class mAxCommerceCategory
+        #{
+        #    RecId id;
+        #    EcoResCategoryName name;
+        #    List childCategories;
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #public void new()
+        #{
+        #    childCategories = new List(Types::Class);
+        #}
+      ENDSOURCE
+      SOURCE #parmChildCategories
+        #[DataMemberAttribute,
+        # AifCollectionTypeAttribute("_childCategories", Types::Class, classStr(mAxCommerceCategory)),
+        # AifCollectionTypeAttribute("return", Types::Class, classStr(mAxCommerceCategory))]
+        #public List parmChildCategories(List _childCategories = childCategories)
+        #{
+        #    childCategories = _childCategories;
+        #    return childCategories;
+        #}
+      ENDSOURCE
+      SOURCE #parmId
+        #[DataMemberAttribute]
+        #public RecId parmId(RecId _id = id)
+        #{
+        #    id = _id;
+        #    return id;
+        #}
+      ENDSOURCE
+      SOURCE #parmName
+        #[DataMemberAttribute]
+        #public EcoResCategoryName parmName(EcoResCategoryName _name = name)
+        #{
+        #    name = _name;
+        #    return name;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: mAxCommerceProduct unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #mAxCommerceProduct
+    PROPERTIES
+      Name                #mAxCommerceProduct
+      Origin              #{1622EE07-CCA3-4F67-8297-50CAD796D1D9}
+    ENDPROPERTIES
+    
+    METHODS
+      SOURCE #classDeclaration
+        #[DataContractAttribute]
+        #public class mAxCommerceProduct
+        #{
+        #    EcoResProductName name;
+        #    EcoResDescription description;
+        #    Price price;
+        #    RecId id;
+        #    List images;
+        #}
+      ENDSOURCE
+      SOURCE #parmDescription
+        #[DataMemberAttribute]
+        #public EcoResDescription parmDescription(EcoResDescription _description = description)
+        #{
+        #    description = _description;
+        #    return description;
+        #}
+      ENDSOURCE
+      SOURCE #parmId
+        #[DataMemberAttribute]
+        #public RecId parmId(RecId _id = id)
+        #{
+        #    id = _id;
+        #    return id;
+        #}
+      ENDSOURCE
+      SOURCE #parmImages
+        #[DataMemberAttribute,
+        # AifCollectionTypeAttribute("return", Types::Int64)]
+        #public List parmImages(List _images = images)
+        #{
+        #    images = _images;
+        #    return images;
+        #}
+      ENDSOURCE
+      SOURCE #parmName
+        #[DataMemberAttribute]
+        #public EcoResProductName parmName(EcoResProductName _name = name)
+        #{
+        #    name = _name;
+        #    return name;
+        #}
+      ENDSOURCE
+      SOURCE #parmPrice
+        #[DataMemberAttribute]
+        #public Price parmPrice(Price _price = price)
+        #{
+        #    price = _price;
+        #    return price;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : max unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #max
+  PRIVATE
+  PROPERTIES
+    Name                #max
+    Origin              #{0F0A7055-386D-4D33-916D-3A11C33ED0C5}
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #TestCreateOrder
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038897
+      NODETYPE 329
+      NAME #mAxCommerceOrderLine
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038896
+      NODETYPE 329
+      NAME #mAxCommerceOrder
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #TestCommerceServiceJob
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #TestImageServiceJob
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038899
+      NODETYPE 329
+      NAME #mAxCommerceProductImages
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 76
+      UTILOBJECTID 0
+      NODETYPE 1321
+      NAME #mAxCommerceService
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038900
+      NODETYPE 329
+      NAME #mAxCommerceService
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038895
+      NODETYPE 329
+      NAME #mAxCommerceCategory
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 1038898
+      NODETYPE 329
+      NAME #mAxCommerceProduct
+    ENDNODE
+  ENDPROJECT
+  
+
+***Element: END

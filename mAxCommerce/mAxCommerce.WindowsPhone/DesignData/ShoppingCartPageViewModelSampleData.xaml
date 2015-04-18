@@ -1,0 +1,15 @@
+﻿<vm:ShoppingCartPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:mAxCommerce.WindowsPhone.ViewModels"
+    xmlns:core="clr-namespace:mAxCommerce.Core;assembly=mAxCommerce.Core"
+    >
+
+    <vm:ShoppingCartPageViewModel.Products>
+        <core:Product Name="design one" Price="12.3" />
+        <core:Product Name="Aa" Price="12.3" />
+        <core:Product Name="Lorem ipsum dolor lorem ipsum dolor lorem" Price="9.99" />
+        <core:Product Name="design one" Price="1111.111" />
+    </vm:ShoppingCartPageViewModel.Products>
+
+</vm:ShoppingCartPageViewModel>

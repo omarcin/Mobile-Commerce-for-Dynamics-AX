@@ -1,0 +1,16 @@
+﻿<vm:AddressSelectPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:mAxCommerce.WindowsPhone.ViewModels"
+    xmlns:core="clr-namespace:mAxCommerce.Core;assembly=mAxCommerce.Core"
+    >
+
+
+
+    <vm:AddressSelectPageViewModel.DeliveryAddresses>
+        <core:Address FirstName="Jan" LastName="Kowalski" Street="Świeradowska" Number="13/5" City="Legnica" PostalCode="59-220" Country="Poland"/>
+        <core:Address FirstName="Krystyna" LastName="Kowalska" Street="Świeradowska" Number="13/5" City="Legnica" PostalCode="59-220" Country="Poland"/>
+        <core:Address FirstName="Miłosz" LastName="Gajewski" Street="Świeradowska" Number="13/5" City="Legnica" PostalCode="59-220" Country="Poland"/>
+    </vm:AddressSelectPageViewModel.DeliveryAddresses>
+
+</vm:AddressSelectPageViewModel>
